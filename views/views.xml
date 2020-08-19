@@ -1,0 +1,31 @@
+<odoo>
+	<data>
+		<record id="convert_act" model="ir.actions.act_window">
+			<field name="name">Convert Excel</field>
+			<field name="res_model">asp.upload_wizard</field>
+			<field name="view_mode">form</field>
+		</record>
+		<record id="upload_form" model="ir.ui.view">
+			<field name="name">Convert Excel Form</field>
+			<field name="model">asp.upload_wizard</field>
+			<field name="arch" type="xml">
+				<form>
+					<header>
+            			<button string="Convert Excel" type="object" name="convert_data"/>
+					</header>
+					<sheet>
+						<group string="Upload Excel Autodebet">
+							<field name="upload"/>
+							<field name="download" widget="binary" filename="download_name" readonly="1"/>
+							<field name="download_name" invisible="1"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<menuitem id="convert_menu" name="Converter" groups="school_master.as_administrator,school_master.as_tata_usaha"
+		parent="school_payment.root_menu"/>
+		<menuitem id="upload_wizard_menu" name="Convert Excel" parent="convert_menu" action="convert_act" groups="school_master.as_administrator,school_master.as_tata_usaha"/>
+	</data>
+</odoo>
